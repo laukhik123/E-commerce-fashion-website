@@ -1,4 +1,4 @@
-Simple E-Commerce Fashion Website
+**Simple E-Commerce Fashion Website**
 This is a basic front-end e-commerce fashion website built using HTML, CSS, and JavaScript. The project showcases a simple online store interface with product listings, shopping cart functionality, and responsive design elements.
 
 Project Features
