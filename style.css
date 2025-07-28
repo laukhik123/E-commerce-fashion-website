@@ -37,15 +37,402 @@ html::-webkit-scrollbar-thumb{
     border-radius: 5rem;
 }
 
+/* Firefox scrollbar support */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--black-color) var(--white-color);
+}
+
 body{
     background:#eee;
 }
 
+/* Dark mode when toggled manually */
 body.active{
     --white-color:#111;
     --black-color:#fff;
     --light-color:rgba(255,255,255,.3);
     background:#222;
+}
+
+/* Dark mode based on system preference, unless manually toggled */
+@media (prefers-color-scheme: dark) {
+    body:not(.light-mode) {
+        --white-color:#111;
+        --black-color:#fff;
+        --light-color:rgba(255,255,255,.3);
+        background:#222;
+    }
+}
+
+/* Cart and Compare Components */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    background: var(--orange);
+    color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
+    z-index: 10000;
+    font-size: 1.6rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(calc(100% + 20px));
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Notification variants */
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.info {
+    background-color: var(--orange);
+}
+
+.notification.warning {
+    background-color: #ff9800;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Cart Panel */
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: var(--white-color);
+    box-shadow: -5px 0 15px rgba(0,0,0,.1);
+    z-index: 1001;
+    transition: 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.active {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid var(--light-color);
+}
+
+.cart-header h2 {
+    font-size: 2.2rem;
+    color: var(--black-color);
+}
+
+.close-cart {
+    background: none;
+    font-size: 2.5rem;
+    color: var(--black-color);
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.empty-cart {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--light-color);
+    margin-top: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--light-color);
+    position: relative;
+}
+
+.cart-item img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-details h3 {
+    font-size: 1.6rem;
+    color: var(--black-color);
+    margin-bottom: 0.5rem;
+}
+
+.item-price {
+    font-size: 1.4rem;
+    color: var(--orange);
+    margin-bottom: 1rem;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-control button {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.item-qty {
+    width: 4rem;
+    height: 2.5rem;
+    border: 1px solid var(--light-color);
+    border-radius: 3px;
+    text-align: center;
+    color: var(--black-color);
+    font-size: 1.4rem;
+    background: var(--white-color);
+}
+
+.remove-item {
+    background: none;
+    font-size: 2rem;
+    color: #f00;
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+}
+
+.cart-footer {
+    padding: 2rem;
+    border-top: 1px solid var(--light-color);
+    background: var(--white-color);
+}
+
+.cart-total {
+    font-size: 1.8rem;
+    color: var(--black-color);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Utility button classes */
+.btn-block {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    border: none;
+}
+
+.btn--primary {
+    background: var(--orange);
+    color: #fff;
+}
+
+.btn--secondary {
+    background: #f2f2f2;
+    color: var(--black-color);
+}
+
+.btn--danger {
+    background: #ff4d4d;
+    color: #fff;
+}
+
+/* Apply utility classes to existing buttons */
+.checkout-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    border: none;
+    background: var(--orange);
+    color: #fff;
+}
+
+.clear-cart-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    border: none;
+    background: #f2f2f2;
+    color: var(--black-color);
+}
+
+/* Compare Panel */
+.compare-panel {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--white-color);
+    z-index: 1001;
+    transition: 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.compare-panel.active {
+    left: 0;
+}
+
+.compare-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid var(--light-color);
+}
+
+.compare-header h2 {
+    font-size: 2.2rem;
+    color: var(--black-color);
+}
+
+.close-compare {
+    background: none;
+    font-size: 2.5rem;
+    color: var(--black-color);
+    cursor: pointer;
+}
+
+.compare-items {
+    flex: 1;
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+.empty-compare {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--light-color);
+    margin-top: 2rem;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.compare-table th {
+    text-align: left;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border-bottom: 1px solid var(--light-color);
+    min-width: 150px;
+}
+
+.compare-table td {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--black-color);
+    border-bottom: 1px solid var(--light-color);
+    min-width: 200px;
+}
+
+.compare-table img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}
+
+/* Button component styles */
+.btn-sm {
+    padding: 0.8rem 1.5rem;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+}
+
+.remove-compare-item {
+    padding: 0.8rem 1.5rem;
+    background: #ff4d4d;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+}
+
+.add-to-cart-btn {
+    padding: 0.8rem 1.5rem;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+}
+
+.compare-footer {
+    padding: 2rem;
+    border-top: 1px solid var(--light-color);
+    background: var(--white-color);
+}
+
+.clear-compare-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    background: #f2f2f2;
+    color: var(--black-color);
+    cursor: pointer;
+    text-transform: capitalize;
 }
 
 section{
@@ -80,6 +467,17 @@ section{
 .btn:hover{
     background:var(--orange);
     color:#fff;
+}
+
+/* Focus styles for better accessibility */
+.btn:focus,
+.close-cart:focus,
+.close-compare:focus,
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
 }
 
 header{
@@ -135,7 +533,8 @@ header form label:hover{
 }
 
 header .icons div,
-header .icons a{
+header .icons a,
+header .icons button{
     height: 4rem;
     width: 4rem;
     font-size: 1.7rem;
@@ -146,10 +545,14 @@ header .icons a{
     border-radius: 50%;
     cursor: pointer;
     margin-right: .7rem;
+    position: relative;
+    border: none;
+    padding: 0;
 }
 
 header .icons div:hover,
-header .icons a:hover{
+header .icons a:hover,
+header .icons button:hover{
     background: var(--orange);
     color:#fff;
     transform: rotate(360deg);
@@ -221,6 +624,9 @@ header.active{
     font-size: 3rem;
     cursor: pointer;
     color:var(--black-color);
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .navbar #close:hover{
@@ -323,6 +729,31 @@ header.active{
     border-top: .1rem solid var(--light-color);
 }
 
+/* Product icon styles - flattened selectors for better performance */
+.product-icons{
+    position: absolute;
+    top:0; right:-7rem;
+    transition: right 0.3s ease;
+}
+
+.slide:hover .product-icons{
+    right:1rem;
+}
+
+.product-icon{
+    height:5rem;
+    width:5rem;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    background: var(--black-color);
+    color:var(--white-color);
+    display: block;
+    margin-top: 1rem;
+}
+
+/* Keep original selectors for backward compatibility */
 .products .product-slider .slide .icons{
     position: absolute;
     top:0; right:-7rem;

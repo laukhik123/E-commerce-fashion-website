@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManiShan Fashions</title>
+    <title>Anirudh Fashions</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -21,19 +21,19 @@
 
 <header>
 
-    <a href="#" class="logo">ManiShan<span>.</span></a>
+    <a href="#" class="logo">Anirudh</a>
 
-    <form action="">
-        <input type="search" id="search-bar">
-        <label for="search-bar" class="fas fa-search"></label>
+    <form action="" role="search">
+        <input type="search" id="search-bar" aria-label="Search products">
+        <label for="search-bar" class="fas fa-search" aria-hidden="true"></label>
     </form>
 
     <div class="icons">
-        <div id="menu-bar" class="fas fa-bars"></div>
-        <div id="theme-toggler" class="fas fa-moon"></div>
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <a href="#" class="fas fa-user"></a>
+        <button id="menu-bar" class="fas fa-bars" aria-label="Toggle menu"></button>
+        <button id="theme-toggler" class="fas fa-moon" aria-label="Toggle dark mode"></button>
+        <button class="fas fa-heart" aria-label="View comparison list"></button>
+        <button class="fas fa-shopping-cart" aria-label="View shopping cart"></button>
+        <button class="fas fa-user" aria-label="View user account"></button>
     </div>
 
 </header>
@@ -46,7 +46,7 @@
 
     <div class="user">
         <img src="images/user-img.png" alt="">
-        <h3>shaikh anas</h3>
+        <h3>Lilbro</h3>
     </div>
 
     <div class="links">
@@ -57,7 +57,7 @@
         <a href="#review">review</a>
     </div>
 
-    <div id="close" class="fas fa-times"></div>
+    <button id="close" class="fas fa-times" aria-label="Close menu"></button>
 
 </nav>
 
@@ -91,7 +91,7 @@
             <img src="images/cat-1.jpg" alt="">
             <div class="content">
                 <span>upto 50% off</span>
-                <h3>for womans</h3>
+                <h3>for womens</h3>
                 <a href="#" class="btn">shop now</a>
             </div>
         </div>
@@ -100,7 +100,7 @@
             <img src="images/cat-2.jpg" alt="">
             <div class="content">
                 <span>upto 50% off</span>
-                <h3>for mans</h3>
+                <h3>for mens</h3>
                 <a href="#" class="btn">shop now</a>
             </div>
         </div>
@@ -121,13 +121,13 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <div class="slide">
-                <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-eye"></a>
+                <div class="icons product-icons">
+                    <a href="#" class="fas fa-heart product-icon" aria-label="Add to wishlist"></a>
+                    <a href="#" class="fas fa-search product-icon" aria-label="Quick search"></a>
+                    <a href="#" class="fas fa-eye product-icon" aria-label="Quick view"></a>
                 </div>
                 <div class="image">
-                    <img src="images/p-1.png" alt="">
+                    <img data-src="images/p-1.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Man's clothing item" loading="lazy">
                 </div>
                 <div class="content">
                     <div class="stars">
@@ -138,7 +138,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>man's clothing</h3>
+                    <h3>men's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -152,7 +152,7 @@
                     <a href="#" class="fas fa-eye"></a>
                 </div>
                 <div class="image">
-                    <img src="images/p-2.png" alt="">
+                    <img data-src="images/p-2.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Woman's clothing item" loading="lazy">
                 </div>
                 <div class="content">
                     <div class="stars">
@@ -163,7 +163,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>woman's clothing</h3>
+                    <h3>women's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -188,7 +188,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>man's clothing</h3>
+                    <h3>men's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -213,7 +213,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>woman's clothing</h3>
+                    <h3>women's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -238,7 +238,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>man's clothing</h3>
+                    <h3>men's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -270,7 +270,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>woman's clothing</h3>
+                    <h3>women's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -295,7 +295,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>man's clothing</h3>
+                    <h3>men's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -320,7 +320,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>woman's clothing</h3>
+                    <h3>women's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -345,7 +345,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>man's clothing</h3>
+                    <h3>men's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -370,7 +370,7 @@
                         <i class="far fa-star"></i>
                         <span>( 250 reviews )</span>
                     </div>
-                    <h3>woman's clothing</h3>
+                    <h3>women's clothing</h3>
                     <div class="price">$15.99 <span>$18.99</span></div>
                     <a href="#" class="btn">add to cart</a>
                 </div>
@@ -405,7 +405,7 @@
                 </div>
             </div>
             <div class="content">
-                <h3>man's clothing</h3>
+                <h3>men's clothing</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -432,7 +432,7 @@
                 </div>
             </div>
             <div class="content">
-                <h3>woman's clothing</h3>
+                <h3>women's clothing</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -459,7 +459,7 @@
                 </div>
             </div>
             <div class="content">
-                <h3>man's clothing</h3>
+                <h3>men's clothing</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
